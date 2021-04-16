@@ -1,11 +1,11 @@
 import kotlin.random.Random
 
-fun testStack(i: Int) {
+fun testStack(i: String) {
     println("Iteration $i")
 
-    val j = i + 1
+    val j = i.toInt() + 1
 
-    testStack(j)
+    testStack(j.toString())
 }
 
 private const val STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-"
@@ -28,7 +28,8 @@ fun main(args: Array<String>) {
     println("Start test...")
 
     if (args.contains(STACK_OVERFLOW_ARG)) try {
-        testStack(0)
+        val value = 0.toString()
+        testStack(value)
     } catch (e: StackOverflowError) {
         // TODO: try handle this error
     }
